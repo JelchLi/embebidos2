@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Control de botones</title>
+    <script>
+        function button1Clicked() {
+            fetch('/button1')
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Error en la solicitud');
+                })
+                .then(data => {
+                    document.getElementById('button1').innerText = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+
+        function button2Clicked() {
+            fetch('/button2')
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Error en la solicitud');
+                })
+                .then(data => {
+                    document.getElementById('button2').innerText = data;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <h1>Control de Botones</h1>
+    <button id="button1" onclick="button1Clicked()">Boton 1</button>
+    <button id="button2" onclick="button2Clicked()">Boton 2</button>
+</body>
+</html>
